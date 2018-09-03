@@ -117,10 +117,7 @@ router.post('/communication_create', (request, response) => {
     const ContactID = request.body.ContactID
     const Type = request.body.Type
     const Value = request.body.Value
-    if (request.body.Preferred != null){
-        const Preferred = 1;
-    }
-    else { const Preferred = 0; }
+    const Preferred = request.body.Preferred
   
     // Define SQL Query
     var queryString = "INSERT INTO communication (contact_id, Type, Value, Preferred) VALUES (?, ?, ?, ?)"
