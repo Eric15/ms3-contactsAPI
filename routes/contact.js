@@ -92,7 +92,7 @@ router.post('/address_create', (request, response) => {
     const Zipcode = request.body.Zipcode
   
     // Define SQL Query
-    var queryString = "INSERT INTO identification (contact_id, Type, Number, Street, Unit, City, State, Zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    var queryString = "INSERT INTO address (contact_id, Type, Number, Street, Unit, City, State, Zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
     // Perform SQL Query
     connection.query(queryString, [ContactID, Type, Number, Street, Unit, City, State, Zipcode], (err, results, fields) => {
         // If query generates an error
