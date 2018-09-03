@@ -76,7 +76,7 @@ router.post('/contact_create', (request, response) => {
     })
 })
 
-// POST new Contact
+// POST new Address
 router.post('/address_create', (request, response) => {
     const connection = getConnection()
     console.log("Creating new address...")
@@ -107,6 +107,35 @@ router.post('/address_create', (request, response) => {
         response.end()
     })
 })
+
+// POST new Communication
+router.post('/communication_create', (request, response) => {
+    const connection = getConnection()
+    console.log("Creating new communication...")
+  
+    // Parse form elements from contact_create form
+    const ContactID = request.body.ContactID
+    const Type = request.body.Type
+    const Value = request.body.Value
+    const Preferred = request.body.Preferred
+  
+    // Define SQL Query
+    var queryString = "INSERT INTO address (contact_id, Type, Value, Preferred) VALUES (?, ?, ?, ?)"
+    // Perform SQL Query
+    connection.query(queryString, [ContactID, Type, Value, Preferred], (err, results, fields) => {
+        // If query generates an error
+        if (err) {
+            console.error('error connecting: ' + err);
+            console.error(queryString, [ContactID, Type, Value, Preferred]);
+            response.sendStatus(500)
+            return;
+        }
+        // Else, no error -- query is successful.
+        console.log('Successful Query -- inserted new address: ', results.insertId);
+        response.end()
+    })
+})
+
 /*
 // Local connection pool
 const pool = mysql.createPool({
