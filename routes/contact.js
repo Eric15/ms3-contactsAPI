@@ -86,14 +86,15 @@ router.post('/address_create', (request, response) => {
     const Type = request.body.Type
     const Number = request.body.Number
     const Street = request.body.Street
+    const Unit = request.body.Unit
     const City = request.body.City
     const State = request.body.State
     const Zipcode = request.body.Zipcode
   
     // Define SQL Query
-    var queryString = "INSERT INTO identification (contact_id, Type, Number, Street, City, State, Zipcode) VALUES (?, ?, ?, ?, ?)"
+    var queryString = "INSERT INTO identification (contact_id, Type, Number, Street, Unit, City, State, Zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
     // Perform SQL Query
-    connection.query(queryString, [ContactID, Type, Number, Street, City, State, Zipcode], (err, results, fields) => {
+    connection.query(queryString, [ContactID, Type, Number, Street, Unit, City, State, Zipcode], (err, results, fields) => {
         // If query generates an error
         if (err) {
             console.error('error connecting: ' + err);
