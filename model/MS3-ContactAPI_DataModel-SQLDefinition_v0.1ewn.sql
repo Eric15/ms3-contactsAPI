@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS Address(
   Type       VARCHAR(255) NOT NULL,
   Number     VARCHAR(255) NOT NULL,
   Street     VARCHAR(255) NOT NULL,
-  Unit       VARCHAR(255) NOT NULL,
+  Unit       VARCHAR(255),
   City       VARCHAR(255) NOT NULL,
   State      VARCHAR(2) NOT NULL,
   Zipcode    VARCHAR(10)  NOT NULL
