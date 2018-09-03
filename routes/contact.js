@@ -120,7 +120,7 @@ router.post('/communication_create', (request, response) => {
     const Preferred = request.body.Preferred
   
     // Define SQL Query
-    var queryString = "INSERT INTO address (contact_id, Type, Value, Preferred) VALUES (?, ?, ?, ?)"
+    var queryString = "INSERT INTO communication (contact_id, Type, Value, Preferred) VALUES (?, ?, ?, ?)"
     // Perform SQL Query
     connection.query(queryString, [ContactID, Type, Value, Preferred], (err, results, fields) => {
         // If query generates an error

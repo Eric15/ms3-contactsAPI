@@ -42,7 +42,7 @@
         <!-- New Communication Form -->
         <div>
             <h2>New Communication</h2>
-            <form action="/communication_create" method="POST" id="address_create">
+            <form action="/communication_create" method="POST" id="communication_create">
                 <input type="text" name="ContactID" id="ContactID" placeholder="Contact ID"/>
                 <label for="Type">
                     Type
@@ -54,7 +54,7 @@
                         <option value="Fax">Fax</option>
                 </select>
                 <input type="text" name="Value" id="Value" placeholder="Value"/>
-                <input type="boolean" name="Preferred" id="Preferred" placeholder="Preferred"/>
+                <input type="checkbox" name="Preferred" id="Preferred" placeholder="Preferred"/>
                 <button>Submit</button>
             </form>
         </div>
