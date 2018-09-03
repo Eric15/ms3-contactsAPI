@@ -39,7 +39,7 @@ router.get("/contacts/:id", (request, response) =>{
   
     // Define SQL Query
     const contactId = request.params.id
-    var queryString = "SELECT * FROM identification WHERE id = ?"
+    var queryString = "SELECT * FROM identification WHERE contact_id = ?"
     // Perform SQL Query
     connection.query(queryString, [contactId], (err, rows, fields) => {
         // If query generates an error
