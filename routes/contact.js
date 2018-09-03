@@ -117,7 +117,7 @@ router.post('/communication_create', (request, response) => {
     const ContactID = request.body.ContactID
     const Type = request.body.Type
     const Value = request.body.Value
-    const Preferred = request.body.Preferred
+    const Preferred = checkboxToBinary(request.body.Preferred)
   
     // Define SQL Query
     var queryString = "INSERT INTO communication (contact_id, Type, Value, Preferred) VALUES (?, ?, ?, ?)"
@@ -158,6 +158,16 @@ const pool = mysql.createPool({
 // Connect to Database
 function getConnection() { 
     return pool
+}
+
+// Return 0 for NULL value
+function checkboxToBinary(checkboxValue){
+    if (checkboxValue === null) {
+        return 0;
+    }
+    else {
+        return 1;
+    }
 }
 
 module.exports = router
