@@ -17,5 +17,42 @@
                 <button>Submit</button>
             </form>
         </div>
+        <div>
+            <h2>New Address</h2>
+            <form action="/address_create" method="POST" id="address_create">
+                <input type="text" name="ContactID" id="ContactID" placeholder="Contact ID"/>
+                <label for="Type">
+                    Type
+                </label>
+                <select name="Type" id="Type" form="address_create">
+                        <option value="Home">Home</option>
+                        <option value="Work">Work</option>
+                </select>
+                <input type="text" name="Number" id="Number" placeholder="Number"/>
+                <input type="text" name="Street" id="Street" placeholder="Street"/>
+                <input type="text" name="City" id="City" placeholder="City"/>
+                <input type="text" name="State" id="State" placeholder="State"/>
+                <input type="text" name="Zipcode" id="Zipcode" placeholder="Zip Code"/>
+                <button>Submit</button>
+            </form>
+        </div>
+        <div>
+            <h2>New Communication</h2>
+            <form action="/communication_create" method="POST" id="address_create">
+                <input type="text" name="ContactID" id="ContactID" placeholder="Contact ID"/>
+                <label for="Type">
+                    Type
+                </label>
+                <select name="Type" id="Type" form="address_create">
+                        <option value="Email">Email</option>
+                        <option value="Cell">Cell</option>
+                        <option value="Work">Work</option>
+                        <option value="Fax">Fax</option>
+                </select>
+                <input type="text" name="Value" id="Value" placeholder="Value"/>
+                <input type="boolean" name="Preferred" id="Preferred" placeholder="Preferred"/>
+                <button>Submit</button>
+            </form>
+        </div>
     </body>
 </html>
