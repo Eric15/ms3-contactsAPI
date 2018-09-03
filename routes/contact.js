@@ -5,16 +5,10 @@ const mysql = require('mysql')
 // Create Router
 const router = express.Router()
 
-// GET Messages
-router.get('/messages', (request, response) => {
-    console.log("All Messages")
-    response.end()
-  })
-
 // GET All Contacts
 router.get("/contacts", (request, response) => {
     const connection = getConnection()
-    // console.log("Fetching all contacts")
+    console.log("Fetching all contacts")
     
     // Define SQL Query
     const queryString = "SELECT * FROM identification"
@@ -27,7 +21,7 @@ router.get("/contacts", (request, response) => {
             return
         }
         // Else, no error -- query is successful.
-        //console.log('Successful Query');
+        console.log('Successful Query');
         response.json(rows)
     })
 })
