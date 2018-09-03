@@ -1,12 +1,12 @@
 {
   "name": "ms3-contacts",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Senior Code Challenge for MS3",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Eric Nelson <eric@augmentsoftware.com>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
