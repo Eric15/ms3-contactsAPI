@@ -98,6 +98,7 @@ router.post('/address_create', (request, response) => {
         // If query generates an error
         if (err) {
             console.error('error connecting: ' + err);
+            console.error(queryString, [ContactID, Type, Number, Street, Unit, City, State, Zipcode]);
             response.sendStatus(500)
             return;
         }
