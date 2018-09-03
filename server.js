@@ -21,8 +21,8 @@ app.get("/", (request, response) => {
   response.send("Go to /Contacts to query all Contacts in database.")
 })
 
-const PORT = process.env.PORT || 3000
-// serve on localhost:3000
+const PORT = process.env.PORT || 8080
+// serve on localhost:8080
 app.listen(PORT, () => {
   console.log("Serving on localhost:" + PORT)
 })
