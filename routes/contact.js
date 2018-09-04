@@ -1,6 +1,7 @@
 // Import Packages
 const express = require('express')
 const mysql = require('mysql')
+const db = require('../config/db')
 
 // Create Router
 const router = express.Router()
@@ -149,10 +150,10 @@ const pool = mysql.createPool({
 // Heroku connection pool
 const pool = mysql.createPool({
     connectionLimit: 10,
-    host: 'us-cdbr-iron-east-01.cleardb.net',
-    user: 'b4e37350e5cd47',
-    password: '00f92433',
-    database: 'heroku_797d1639e71eabf'
+    host: db.host,
+    user: db.user,
+    password: db.password,
+    database: db.database
 })
 
 // Connect to Database
