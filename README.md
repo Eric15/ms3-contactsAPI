@@ -29,14 +29,12 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 5. /communications -- GET all Communication records
 6. /communications/:contact_id -- GET all Communication records where contact_id = :id
 
-#### PUT
-* /update.html -- 3 webforms for updating records in Identification, Address, and Communication tables
+#### PUT -- Throwing error "cannot GET \</route>"
 1. /contact_update -- PUT to Identification record
 2. /address_update -- PUT to Address record
 3. /communication_update -- PUT to Communication record
 
-#### DELETE
-* /delete.html -- 3 webforms for deleting records in Identification, Address, and Communication tables
+#### DELETE -- Throwing error "cannot GET \</route>"
 1. /contact_delete/:contact_id -- DELETE Identification record and associated Address and Communication records
 2. /address_delete/:address_id -- DELETE Address record
 3. /communication_delete/:communication_id -- DELETE Communication record
@@ -44,7 +42,8 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 ### Docker
 * /Dockerfile
 
-## Not Done
+## To Do
+* Fix errors in PUT and DELETE routes
 * Refactor contact.js --> identification.js, address.js, communication.js
 * Refactor contact.js with HTTP Request error/success functions
 * Circle CI configuration file (/.circleci/config.yml)
