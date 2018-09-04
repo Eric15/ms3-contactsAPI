@@ -12,7 +12,7 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 
 # API Routes:
 ## POST
-/form.html -- contains 3 webforms for POSTing new records to Identification, Address, and Communication tables
+* /create.html -- 3 webforms for POSTing new records to Identification, Address, and Communication tables
 1. /contact_create -- POST to Identification table
 2. /address_create -- POST to Address table
 3. /communication_create -- POST to Communication table
@@ -26,11 +26,13 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 6. /communications/:id -- GET all Communication records where contact_id = :id
 
 ## PUT
+* /update.html -- 3 webforms for updating records in Identification, Address, and Communication tables
 1. /contact_update -- PUT to Identification record
 2. /address_update -- PUT to Address record
 3. /communication_update -- PUT to Communication record
 
 ## DELETE
+* /delete.html -- 3 webforms for deleting records in Identification, Address, and Communication tables
 1. /contact_delete -- DELETE Identification record and associated Address and Communication records
 2. /address_delete -- DELETE Address record
 3. /communication_delete -- DELETE Communication record
