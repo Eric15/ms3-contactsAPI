@@ -25,9 +25,9 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 1. /contacts -- GET all Identification records
 2. /contacts/:id -- GET Identification record where contact_id = :id
 3. /addresses -- GET all Address records
-4. /addresses/:id -- GET all Address records where contact_id = :id
+4. /addresses/:contact_id -- GET all Address records where contact_id = :id
 5. /communications -- GET all Communication records
-6. /communications/:id -- GET all Communication records where contact_id = :id
+6. /communications/:contact_id -- GET all Communication records where contact_id = :id
 
 #### PUT
 * /update.html -- 3 webforms for updating records in Identification, Address, and Communication tables
