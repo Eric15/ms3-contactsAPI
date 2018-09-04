@@ -3,9 +3,7 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 
 ## Build Instructions (in CLI)
 (Make sure Docker is installed)
-1. git clone https://github.com/Eric15/ms3-contactsAPI.git<path to repo>
-2. cd ms3-contactsAPI
-3. docker run -p 49160:8080 -d augmentsoftware/ms3-contactsapi
+* docker run -p 49160:8080 -d augmentsoftware/ms3-contactsapi
   
 - Host: http://localhost
 - Port: 49160
