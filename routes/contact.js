@@ -321,7 +321,27 @@ router.post('/communication_update', (request, response) => {
 
 /* DELETE Routes */
 
-
+// DELETE Single Contact (Identification)
+router.delete("/contacts/delete/:contact_id", (request, response) =>{
+    const connection = getConnection()
+    console.log("Deleting contact with contact_id: " + request.params.contact_id)
+  
+    // Define SQL Query
+    const contactId = request.params.contact_id
+    var queryString = "DELETE FROM identification WHERE contact_id = ?"
+    // Perform SQL Query
+    connection.query(queryString, [contactId], (err, rows, fields) => {
+        // If query generates an error
+        if (err) {
+            console.error('error connecting: ' + err);
+            response.sendStatus(500)
+            return;
+        }
+        // Else, no error -- query is successful.
+        console.log('Successful Query');
+        response.json(rows)
+    })
+})
 
 // Heroku connection pool
 const pool = mysql.createPool({
