@@ -6,7 +6,9 @@ const db = require('../config/db')
 // Create Router
 const router = express.Router()
 
-// GET All Contacts
+/* GET Routes */
+
+// GET All Contacts (Identification)
 router.get("/contacts", (request, response) => {
     const connection = getConnection()
     console.log("Fetching all contacts")
@@ -27,7 +29,7 @@ router.get("/contacts", (request, response) => {
     })
 })
 
-// GET Single Contact
+// GET Single Contact (Identification)
 router.get("/contacts/:id", (request, response) =>{
     const connection = getConnection()
     console.log("Fetching contact with id: " + request.params.id)
@@ -49,7 +51,95 @@ router.get("/contacts/:id", (request, response) =>{
     })
 })
 
-// POST new Contact
+// GET All Addresses
+router.get("/addresses", (request, response) => {
+    const connection = getConnection()
+    console.log("Fetching all addresses")
+    
+    // Define SQL Query
+    const queryString = "SELECT * FROM address"
+    // Perform SQL Query
+    connection.query(queryString, (err, rows, fields) => {
+        // If query generates an error
+        if (err) {
+            console.log("error connecting: " + err);
+            response.sendStatus(500)
+            return
+        }
+        // Else, no error -- query is successful.
+        console.log('Successful Query');
+        response.json(rows)
+    })
+})
+
+// GET Addresses for Single Contact (Identification)
+router.get("/addresses/:contact_id", (request, response) =>{
+    const connection = getConnection()
+    console.log("Fetching addresses for contact with contact_id: " + request.params.contact_id)
+  
+    // Define SQL Query
+    const contactId = request.params.contact_id
+    var queryString = "SELECT * FROM address WHERE contact_id = ?"
+    // Perform SQL Query
+    connection.query(queryString, [contactId], (err, rows, fields) => {
+        // If query generates an error
+        if (err) {
+            console.error('error connecting: ' + err);
+            response.sendStatus(500)
+            return;
+        }
+        // Else, no error -- query is successful.
+        console.log('Successful Query');
+        response.json(rows)
+    })
+})
+
+// GET All Communications
+router.get("/communications", (request, response) => {
+    const connection = getConnection()
+    console.log("Fetching all communications")
+    
+    // Define SQL Query
+    const queryString = "SELECT * FROM communication"
+    // Perform SQL Query
+    connection.query(queryString, (err, rows, fields) => {
+        // If query generates an error
+        if (err) {
+            console.log("error connecting: " + err);
+            response.sendStatus(500)
+            return
+        }
+        // Else, no error -- query is successful.
+        console.log('Successful Query');
+        response.json(rows)
+    })
+})
+
+// GET Communications for Single Contact (Identification)
+router.get("/communications/:contact_id", (request, response) =>{
+    const connection = getConnection()
+    console.log("Fetching communications for contact with contact_id: " + request.params.contact_id)
+  
+    // Define SQL Query
+    const contactId = request.params.contact_id
+    var queryString = "SELECT * FROM communication WHERE contact_id = ?"
+    // Perform SQL Query
+    connection.query(queryString, [contactId], (err, rows, fields) => {
+        // If query generates an error
+        if (err) {
+            console.error('error connecting: ' + err);
+            response.sendStatus(500)
+            return;
+        }
+        // Else, no error -- query is successful.
+        console.log('Successful Query');
+        response.json(rows)
+    })
+})
+
+/* POST Routes */
+
+// POST new Contact (Identification)
 router.post('/contact_create', (request, response) => {
     const connection = getConnection()
     console.log("Creating new contact...")
@@ -136,6 +226,8 @@ router.post('/communication_create', (request, response) => {
         response.end()
     })
 })
+
+/* PUT Routes */
 
 // PUT (update) existing Contact
 router.put('/contact_update', (request, response) => {
@@ -226,6 +318,10 @@ router.post('/communication_update', (request, response) => {
     })
 })
 */
+
+/* DELETE Routes */
+
+
 
 // Heroku connection pool
 const pool = mysql.createPool({
