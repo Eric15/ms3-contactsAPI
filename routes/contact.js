@@ -138,9 +138,9 @@ router.post('/communication_create', (request, response) => {
 })
 
 // PUT (update) existing Contact
-router.post('/contact_update', (request, response) => {
+router.put('/contact_update', (request, response) => {
     const connection = getConnection()
-    console.log("Creating new contact...")
+    console.log("Updating contact...")
   
     // Parse form elements from contact_create form
     const ContactID = request.body.ContactID
