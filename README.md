@@ -46,7 +46,8 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 
 ## Not Done
 * Refactor contact.js --> identification.js, address.js, communication.js
-* Refactor contact.js with HTTP Request error/success functions.
+* Refactor contact.js with HTTP Request error/success functions
 * Circle CI configuration file (/.circleci/config.yml)
 * Unit Test for each HTTP Method
-* Full web app with sortable table from GET request
+* Full HTML and client-side JS for sortable table from GET request
+* Hosted build on Heroku
