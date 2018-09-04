@@ -29,12 +29,12 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 5. /communications -- GET all Communication records
 6. /communications/:contact_id -- GET all Communication records where contact_id = :id
 
-#### PUT -- Throwing error "cannot GET \</route>"
+#### PUT -- Throwing error "cannot GET \<route>"
 1. /contact_update -- PUT to Identification record
 2. /address_update -- PUT to Address record
 3. /communication_update -- PUT to Communication record
 
-#### DELETE -- Throwing error "cannot GET \</route>"
+#### DELETE -- Throwing error "cannot GET \<route>"
 1. /contact_delete/:contact_id -- DELETE Identification record and associated Address and Communication records
 2. /address_delete/:address_id -- DELETE Address record
 3. /communication_delete/:communication_id -- DELETE Communication record
