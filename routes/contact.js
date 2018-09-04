@@ -137,16 +137,96 @@ router.post('/communication_create', (request, response) => {
     })
 })
 
+// PUT (update) existing Contact
+router.post('/contact_update', (request, response) => {
+    const connection = getConnection()
+    console.log("Creating new contact...")
+  
+    // Parse form elements from contact_create form
+    const ContactID = request.body.ContactID
+    const FirstName = request.body.FirstName
+    const LastName = request.body.LastName
+    const DOB = request.body.DOB
+    const Gender = request.body.Gender
+    const Title = request.body.Title
+  
+    // Define SQL Query
+    var queryString = "UPDATE identification SET FirstName = ?, LastName = ?, DOB = ?, Gender = ?, Title = ? WHERE contact_id = ?"
+    // Perform SQL Query
+    connection.query(queryString, [FirstName, LastName, DOB, Gender, Title, ContactID], (err, results, fields) => {
+        // If query generates an error
+        if (err) {
+            console.error('error connecting: ' + err);
+            response.sendStatus(500)
+            return;
+        }
+        // Else, no error -- query is successful.
+        console.log('Successful Query -- updated contact: ', results);
+        response.end()
+    })
+})
 /*
-// Local connection pool
-const pool = mysql.createPool({
-    connectionLimit: 10,
-    host: 'localhost',
-    user: 'root',
-    password: '2018Challenger',
-    database: 'MS3_contacts'
+// PUT (update) existing Address
+router.post('/address_update', (request, response) => {
+    const connection = getConnection()
+    console.log("Creating new address...")
+  
+    // Parse form elements from contact_create form
+    const ContactID = request.body.ContactID
+    const Type = request.body.Type
+    const Number = request.body.Number
+    const Street = request.body.Street
+    const Unit = request.body.Unit
+    const City = request.body.City
+    const State = request.body.State
+    const Zipcode = request.body.Zipcode
+  
+    // Define SQL Query
+    var queryString = "INSERT INTO address (contact_id, Type, Number, Street, Unit, City, State, Zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    // Perform SQL Query
+    connection.query(queryString, [ContactID, Type, Number, Street, Unit, City, State, Zipcode], (err, results, fields) => {
+        // If query generates an error
+        if (err) {
+            console.error('error connecting: ' + err);
+            console.error(queryString, [ContactID, Type, Number, Street, Unit, City, State, Zipcode]);
+            response.sendStatus(500)
+            return;
+        }
+        // Else, no error -- query is successful.
+        console.log('Successful Query -- inserted new address: ', results.insertId);
+        response.end()
+    })
+})
+
+// PUT (update) existing Communication
+router.post('/communication_update', (request, response) => {
+    const connection = getConnection()
+    console.log("Creating new communication...")
+  
+    // Parse form elements from contact_create form
+    const ContactID = request.body.ContactID
+    const Type = request.body.Type
+    const Value = request.body.Value
+    const Preferred = checkboxToBinary(request.body.Preferred)
+  
+    // Define SQL Query
+    var queryString = "INSERT INTO communication (contact_id, Type, Value, Preferred) VALUES (?, ?, ?, ?)"
+    // Perform SQL Query
+    connection.query(queryString, [ContactID, Type, Value, Preferred], (err, results, fields) => {
+        // If query generates an error
+        if (err) {
+            console.error('error connecting: ' + err);
+            console.error(queryString, [ContactID, Type, Value, Preferred]);
+            response.sendStatus(500)
+            return;
+        }
+        // Else, no error -- query is successful.
+        console.log('Successful Query -- inserted new address: ', results.insertId);
+        response.end()
+    })
 })
 */
+
 // Heroku connection pool
 const pool = mysql.createPool({
     connectionLimit: 10,

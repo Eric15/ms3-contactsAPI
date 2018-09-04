@@ -1,0 +1,68 @@
+<html> 
+    <body>
+        <!-- Update Contact Form -->
+        <div>
+            <h2>Update Contact</h2>
+            <form action="/contact_update" method="PUT" id="contact_update">
+                <input type="text" name="ContactID" id="ContactID" placeholder="ContactID"/>
+                <input type="text" name="FirstName" id="FirstName" placeholder="First Name"/>
+                <input type="text" name="LastName" id="LastName" placeholder="Last Name"/>
+                <input type="date" name="DOB" id="DOB" placeholder="Date of Birth"/>
+                <label for="Gender">
+                    Gender
+                </label>
+                <select name="Gender" id="Gender" form="contact_update">
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                </select>
+                <input type="search" name="Title" id="Title" placeholder="Title"/>
+                <button>Submit</button>
+            </form>
+        </div>
+        <!-- Update Address Form -->
+        <div>
+            <h2>Update Address</h2>
+            <form action="/address_update" method="PUT" id="address_update">
+                <input type="text" name="AddressID" id="AddressID" placeholder="Address ID"/>
+                <input type="text" name="ContactID" id="ContactID" placeholder="Contact ID"/>
+                <label for="Type">
+                    Type
+                </label>
+                <select name="Type" id="Type" form="address_update">
+                        <option value="Home">Home</option>
+                        <option value="Work">Work</option>
+                </select>
+                <input type="text" name="Number" id="Number" placeholder="Number"/>
+                <input type="text" name="Street" id="Street" placeholder="Street"/>
+                <input type="text" name="Unit" id="Unit" placeholder="Unit"/>
+                <input type="text" name="City" id="City" placeholder="City"/>
+                <input type="text" name="State" id="State" placeholder="State"/>
+                <input type="text" name="Zipcode" id="Zipcode" placeholder="Zip Code"/>
+                <button>Submit</button>
+            </form>
+        </div>
+        <!-- Update Communication Form -->
+        <div>
+            <h2>Update Communication</h2>
+            <form action="/communication_update" method="PUT" id="communication_update">
+                <input type="text" name="CommunicationID" id="CommunicationID" placeholder="Communication ID"/>
+                <input type="text" name="ContactID" id="ContactID" placeholder="Contact ID"/>
+                <label for="Type">
+                    Type
+                </label>
+                <select name="Type" id="Type" form="communication_update">
+                        <option value="Email">Email</option>
+                        <option value="Cell">Cell</option>
+                        <option value="Work">Work</option>
+                        <option value="Fax">Fax</option>
+                </select>
+                <input type="text" name="Value" id="Value" placeholder="Value"/>
+                <label for="Preferred">
+                    Preferred?
+                </label>
+                <input type="checkbox" name="Preferred" id="Preferred" placeholder="Preferred"/>
+                <button>Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
