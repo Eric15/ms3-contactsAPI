@@ -163,11 +163,11 @@ function getConnection() {
 
 // Return 0 for NULL value
 function checkboxToBinary(checkboxValue){
-    if (checkboxValue === null) {
-        return 'FALSE';
+    if (checkboxValue === "on") {
+        return true;
     }
     else {
-        return 'TRUE';
+        return false;
     }
 }
 
