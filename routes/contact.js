@@ -231,7 +231,8 @@ router.post('/communication_create', (request, response) => {
 
 // PUT (update) existing Contact
 router.put('/contact_update', (request, response) => {
-    const connection = getConnection()
+    response.send('contacts PUT request')
+    /* const connection = getConnection()
     console.log("Updating contact...")
   
     // Parse form elements from contact_create form
@@ -255,11 +256,11 @@ router.put('/contact_update', (request, response) => {
         // Else, no error -- query is successful.
         console.log('Successful Query -- updated contact: ', results);
         response.end()
-    })
+    })*/
 })
 /*
 // PUT (update) existing Address
-router.post('/address_update', (request, response) => {
+router.put('/address_update', (request, response) => {
     const connection = getConnection()
     console.log("Creating new address...")
   
