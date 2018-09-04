@@ -30,12 +30,12 @@ router.get("/contacts", (request, response) => {
 })
 
 // GET Single Contact (Identification)
-router.get("/contacts/:id", (request, response) =>{
+router.get("/contacts/:contact_id", (request, response) =>{
     const connection = getConnection()
-    console.log("Fetching contact with id: " + request.params.id)
+    console.log("Fetching contact with contact_id: " + request.params.contact_id)
   
     // Define SQL Query
-    const contactId = request.params.id
+    const contactId = request.params.contact_id
     var queryString = "SELECT * FROM identification WHERE contact_id = ?"
     // Perform SQL Query
     connection.query(queryString, [contactId], (err, rows, fields) => {
