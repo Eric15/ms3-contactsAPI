@@ -23,7 +23,7 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 
 #### GET
 1. /contacts -- GET all Identification records
-2. /contacts/:id -- GET Identification record where contact_id = :id
+2. /contacts/:contact_id -- GET Identification record where contact_id = :id
 3. /addresses -- GET all Address records
 4. /addresses/:contact_id -- GET all Address records where contact_id = :id
 5. /communications -- GET all Communication records
@@ -37,9 +37,9 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 
 #### DELETE
 * /delete.html -- 3 webforms for deleting records in Identification, Address, and Communication tables
-1. /contact_delete -- DELETE Identification record and associated Address and Communication records
-2. /address_delete -- DELETE Address record
-3. /communication_delete -- DELETE Communication record
+1. /contact_delete/:contact_id -- DELETE Identification record and associated Address and Communication records
+2. /address_delete/:address_id -- DELETE Address record
+3. /communication_delete/:communication_id -- DELETE Communication record
 
 ### Docker
 * /Dockerfile
