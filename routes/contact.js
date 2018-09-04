@@ -231,8 +231,7 @@ router.post('/communication_create', (request, response) => {
 
 // PUT (update) existing Contact
 router.put('/contact_update', (request, response) => {
-    response.send('contacts PUT request')
-    /* const connection = getConnection()
+    const connection = getConnection()
     console.log("Updating contact...")
   
     // Parse form elements from contact_create form
@@ -256,13 +255,13 @@ router.put('/contact_update', (request, response) => {
         // Else, no error -- query is successful.
         console.log('Successful Query -- updated contact: ', results);
         response.end()
-    })*/
-})
-/*
+    })
+});
+
 // PUT (update) existing Address
 router.put('/address_update', (request, response) => {
     const connection = getConnection()
-    console.log("Creating new address...")
+    console.log("Updating address for contact: " + params.body.ContactID)
   
     // Parse form elements from contact_create form
     const ContactID = request.body.ContactID
@@ -275,26 +274,25 @@ router.put('/address_update', (request, response) => {
     const Zipcode = request.body.Zipcode
   
     // Define SQL Query
-    var queryString = "INSERT INTO address (contact_id, Type, Number, Street, Unit, City, State, Zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    var queryString = "UPDATE address SET contact_id = ?, Type = ?, Number = ?, Street = ?, Unit = ?, City = ?, State = ?, Zipcode = ? WHERE contact_id = ?"
     // Perform SQL Query
-    connection.query(queryString, [ContactID, Type, Number, Street, Unit, City, State, Zipcode], (err, results, fields) => {
+    connection.query(queryString, [Type, Number, Street, Unit, City, State, Zipcode, ContactID], (err, results, fields) => {
         // If query generates an error
         if (err) {
             console.error('error connecting: ' + err);
-            console.error(queryString, [ContactID, Type, Number, Street, Unit, City, State, Zipcode]);
             response.sendStatus(500)
             return;
         }
         // Else, no error -- query is successful.
-        console.log('Successful Query -- inserted new address: ', results.insertId);
+        console.log('Successful Query -- updated address: ', results);
         response.end()
     })
 })
 
 // PUT (update) existing Communication
-router.post('/communication_update', (request, response) => {
+router.put('/communication_update', (request, response) => {
     const connection = getConnection()
-    console.log("Creating new communication...")
+    console.log("Updating communication for contact: " + params.body.ContactID)
   
     // Parse form elements from contact_create form
     const ContactID = request.body.ContactID
@@ -303,22 +301,20 @@ router.post('/communication_update', (request, response) => {
     const Preferred = checkboxToBinary(request.body.Preferred)
   
     // Define SQL Query
-    var queryString = "INSERT INTO communication (contact_id, Type, Value, Preferred) VALUES (?, ?, ?, ?)"
+    var queryString = "UPDATE communication SET Type = ?, Value = ?, Preferred = ?) WHERE contact_id = ?"
     // Perform SQL Query
-    connection.query(queryString, [ContactID, Type, Value, Preferred], (err, results, fields) => {
+    connection.query(queryString, [Type, Value, Preferred, ContactID], (err, results, fields) => {
         // If query generates an error
         if (err) {
             console.error('error connecting: ' + err);
-            console.error(queryString, [ContactID, Type, Value, Preferred]);
             response.sendStatus(500)
             return;
         }
         // Else, no error -- query is successful.
-        console.log('Successful Query -- inserted new address: ', results.insertId);
+        console.log('Successful Query -- updated address: ', results);
         response.end()
     })
 })
-*/
 
 /* DELETE Routes */
 
@@ -332,6 +328,50 @@ router.delete("/contacts/delete/:contact_id", (request, response) =>{
     var queryString = "DELETE FROM identification WHERE contact_id = ?"
     // Perform SQL Query
     connection.query(queryString, [contactId], (err, rows, fields) => {
+        // If query generates an error
+        if (err) {
+            console.error('error connecting: ' + err);
+            response.sendStatus(500)
+            return;
+        }
+        // Else, no error -- query is successful.
+        console.log('Successful Query');
+        response.json(rows)
+    })
+})
+
+// DELETE single Address
+router.get("/addresses/delete/:address_id", (request, response) =>{
+    const connection = getConnection()
+    console.log("Deleting address with address_id: " + request.params.address_id)
+  
+    // Define SQL Query
+    const addressId = request.params.address_id
+    var queryString = "DELETE FROM address WHERE address_id = ?"
+    // Perform SQL Query
+    connection.query(queryString, [addressId], (err, rows, fields) => {
+        // If query generates an error
+        if (err) {
+            console.error('error connecting: ' + err);
+            response.sendStatus(500)
+            return;
+        }
+        // Else, no error -- query is successful.
+        console.log('Successful Query');
+        response.json(rows)
+    })
+})
+
+// DELETE single Communication
+router.get("/communications/delete/:communication_id", (request, response) =>{
+    const connection = getConnection()
+    console.log("Deleting communication with communication_id: " + request.params.communication_id)
+  
+    // Define SQL Query
+    const communicationId = request.params.communication_id
+    var queryString = "DELETE FROM address WHERE communication_id = ?"
+    // Perform SQL Query
+    connection.query(queryString, [communicationId], (err, rows, fields) => {
         // If query generates an error
         if (err) {
             console.error('error connecting: ' + err);
