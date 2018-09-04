@@ -40,3 +40,13 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 1. /contact_delete -- DELETE Identification record and associated Address and Communication records
 2. /address_delete -- DELETE Address record
 3. /communication_delete -- DELETE Communication record
+
+### Docker
+* /Dockerfile
+
+## Not Done
+* Refactor contact.js --> identification.js, address.js, communication.js
+* Refactor contact.js with HTTP Request error/success functions.
+* Circle CI configuration file (/.circleci/config.yml)
+* Unit Test for each HTTP Method
+* Full web app with sortable table from GET request
