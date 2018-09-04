@@ -7,7 +7,8 @@ Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 2. cd ms3-contactsAPI
 3. docker run -p 49160:8080 -d augmentsoftware/ms3-contactsapi
   
-Point browser to http://localhost:49160
+- Host: http://localhost
+- Port: 49160
 
 # API Routes:
 ## POST
