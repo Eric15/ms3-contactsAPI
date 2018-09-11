@@ -1,6 +1,9 @@
 # MS3-ContactAPI
 Senior Coding Challenge for MS3 | Author: Eric Nelson | Version: 0.1
 
+## Description
+Write an API for a Contacts database, as specified in /model/MS3-ContactAPI_DataModel-Src.json
+
 ## Build Instructions (in CLI)
 (Make sure Docker is installed)
 * docker run -p 49160:8080 -d augmentsoftware/ms3-contactsapi
